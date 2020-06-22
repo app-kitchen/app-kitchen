@@ -3,6 +3,10 @@ project (app-kitchen)
 
 include_directories(../include)
 
-file(GLOB SOURCES "*.cpp")
+file(GLOB SOURCES "Main.cpp")
 
-add_executable(app-kitchen ${SOURCES})
+set(EXECUTABLE_NAME "app-kitchen")
+add_executable(${EXECUTABLE_NAME} ${SOURCES})
+
+find_package(SFML 2.5 REQUIRED system window graphics network audio)
+target_link_libraries(${EXECUTABLE_NAME} sfml-system sfml-window sfml-graphics sfml-network sfml-audio)
